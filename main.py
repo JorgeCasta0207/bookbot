@@ -16,7 +16,6 @@ def get_book_text(path):
 
 
 
-
 def count_characters(txt):
     char_dict = {}
 
@@ -29,6 +28,20 @@ def count_characters(txt):
     return char_dict
 
 
+def sort_on(dict):
+    return dict['count']
+
+def character_report(char_dict):
+    char_list = []
+
+    for char, count in char_dict.items():
+        if char.isalpha():
+            char_list.append({"char": char, "count": count})
+
+    char_list.sort(reverse=True, key=sort_on)
+
+    for data in char_list:
+        print(f"The '{data["char"]}' character was found {data["count"]} of times")
 
 
 
@@ -38,13 +51,12 @@ def main():
     text = get_book_text(book_path)
     num_words = count_words(text)
     chars_dict = count_characters(text)
-    # print(chars_dict)
+
+    print(f"--- Begin Report of {book_path} ---")
     print(f"{num_words} words were found in the document")
+    report = character_report(chars_dict)
+
     
-
-
-       
-
 
 if __name__ == "__main__":
     main()
