@@ -1,21 +1,16 @@
-
-def count_words(txt):
-    word_count = len(txt.split())
-    print(word_count)
-    
-
+# Counting words in given text.
 def count_words(txt):
     word_count = len(txt.split())
     return word_count
 
 
-
+# Opening book/text from given path.
 def get_book_text(path):
     with open(path) as f:
         return f.read()
 
 
-
+# Counting characters in given text.
 def count_characters(txt):
     char_dict = {}
 
@@ -31,6 +26,7 @@ def count_characters(txt):
 def sort_on(dict):
     return dict['count']
 
+# Taking in character dictionary and creating report with data given.
 def character_report(char_dict):
     char_list = []
 
